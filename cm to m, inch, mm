@@ -1,0 +1,14 @@
+
+    
+    #include <stdio.h>
+    
+    int main(void){
+    float cm, m, inch, mm;
+    printf("enter in cm : ");
+    scanf("%f", &cm);
+    m = cm/100;
+    inch = cm/2.54;
+    mm = cm*10;
+    printf("m = %.2f\ninch = %.2f\nmm = %.2f", m,inch,mm);
+    
+    }
