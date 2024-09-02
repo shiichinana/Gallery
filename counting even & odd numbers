@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main() 
+{
+    int n, odd=0, even=0;
+  printf("ใส่เลขจำนวนเต็มบวก บรรทัดละ 1 ตัว\n");
+  printf("เมื่อต้องการหยุดทำงานให้ใส่เลข 0\n");
+  
+     do{
+    scanf("%d", &n);
+       if (n>0){
+       if (n%2==0){
+         even++;
+         } else {
+            odd++;
+       } 
+       } else if (n<0){
+           printf("เลขติดลบ จะไม่ถูกนับ\n");
+       }
+       else {
+         printf("จบการรับค่า\n");
+       }
+     }
+       while(n!=0) ;
+          printf("จำนวนเต็มบวกที่เป็นเลขคู่ = %d ตัว\n", even);
+          printf("จำนวนเต็มบวกที่เป็นเลขคี่ = %d ตัว", odd);   
+    return(0); 
+}
