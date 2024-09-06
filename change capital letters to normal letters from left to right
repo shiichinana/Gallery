@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+  char name[30]; // จองที่เก็บcharไว้0-99ช่อง
+  char output[30];
+  printf("Enter your name -> ");
+  scanf("%s", name); //รับเป็นชื่อกลุ่มไม่ใช่แค่ตัวอักษร เลยใช้%s แบบไม่ต้องมีampersand
+  int len = strlen(name); //ต้องมีตัวแปรint รองรับการนับว่ามีกี่ตัวอักษร แล้วในstrlenจะนับใคร
+  for (int i=0;i<30;i++){
+    if (name[i] >= 'a' && name[i] <= 'z'){
+      output[i] = name[i] - 32; //ตัว a มันอยู่ที่ 97 มันเลยต้องลบออกเพื่อให้ได้ตัวใหญ่
+    }
+  
+    if (name[i] >= 'A' && name[i] <= 'Z'){
+      output[i] = name[i] + 32;
+    }
+  } 
+  output[len] = '\0'; //ถ้าเป็นscanf ไม่ต้องมีอันนี้ เพราะมันเติม'\0'ให้อยู่แล้ว แต่อันนี้เป็นoutput ที่เรากำหนดค่าให้มัน มันไม่รู้มันเลยอาจจะพิมพ์ค่ามั่วให้เราเพิ่มเลยต้องใส่อันนี้เข้าไปบอกมัน
+  printf("output is %s", output);
+  return 0;
+}
