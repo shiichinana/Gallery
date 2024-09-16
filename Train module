@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+int main() {
+    int Money, Station, Fee, cont;
+    
+    int ReadMoney();
+    int ReadStation();
+    int CalFee(int);
+    void DisplayResult(int, int);
+    do{
+    Money = ReadMoney();
+    Station = ReadStation();
+    Fee = CalFee(Station);
+    DisplayResult(Money,Fee);
+    printf("\nDo you want to continue? (Yes=1) -> ");
+    scanf("%d", &cont);
+    } while (cont==1);
+    return 0;
+}
+
+int ReadMoney (){
+    int Money;
+    printf("Money in Card : ");
+    scanf("%d", &Money);
+    while (Money<0){
+        printf("\nMoney in Card should not have minus value!\n");
+        printf("Money in Card : ");
+        scanf("%d", &Money);}
+        return Money;
+}
+int ReadStation(){
+    int Station;
+    printf("Number of Stations : ");
+    scanf("%d", &Station);
+    while (Station<=0){
+        printf("\nStation should not have minus value!\n");
+        printf("Number of Stations : ");
+        scanf("%d", &Station);}
+        return Station;
+}
+int CalFee(int Station){
+    int Fee;
+    Fee = 15 + (Station-1)*10;
+    printf("Fee = %d", Fee);
+    return Fee;
+}
+void DisplayResult(int Money,int Fee){
+    int MoneyLeft, TopUp;
+    if(Money>=Fee){
+    MoneyLeft = Money - Fee;
+    printf("\nMoney Left = %d", MoneyLeft);
+    } else {
+    TopUp = Fee - Money;
+    printf("\nNot Enough Money!! Top Up = %d", TopUp);
+    }
+}
+
+
+
+
+
+
+
