@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+
+int main() {
+    int Item,Sales,Money,Change,cont;
+    void ReadCal(int *,int *,int *,int *);
+do{
+    ReadCal(&Item,&Sales,&Money,&Change);
+
+    printf("\nต้องการทำงานต่อหรือไม่?(ทำงานต่อใส่ 1) -> ");
+    scanf("%d", &cont);
+    } while (cont == 1);
+    printf("ขอบคุณ");
+
+    return 0;
+}
+void ReadCal(int *x,int *y,int *z,int *c){
+    printf("จำนวนของที่ซื้อ = ");
+    scanf("%d", x);
+    *y = 50**x;
+    printf("\tราคาของสินค้า = %d", *y);
+    printf("\nเงินที่ลูกค้าให้ = ");
+    scanf("%d", z);
+    *c = *z - *y ;
+    printf("\tเงินที่ต้องทอน = %d", *c);
+    if(*c>=500){
+        int T500 = *c/500;
+        printf("\nธนบัตร 500 บาท = %d ใบ", T500);
+        int T100 = (*c-500*T500)/100;
+        printf("\nธนบัตร 100 บาท = %d ใบ", T100);
+        int T50 = (*c-500*T500-100*T100)/50;
+        printf("\nธนบัตร 50 บาท = %d ใบ", T50);
+        
+    } else {
+        int T500 = 0;
+        printf("\nธนบัตร 500 บาท = %d ใบ", T500);
+        int T100 = (*c-500*T500)/100;
+        printf("\nธนบัตร 100 บาท = %d ใบ", T100);
+        int T50 = (*c-500*T500-100*T100)/50;
+        printf("\nธนบัตร 50 บาท = %d ใบ", T50);
+        
+    }
+}
